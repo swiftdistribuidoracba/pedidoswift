@@ -73,6 +73,7 @@ main{max-width:34rem; margin:0 auto; padding:1.75rem 1.25rem 9rem}
   font-variant-numeric:tabular-nums}
 .price small{font-family:"Barlow",sans-serif; font-weight:500; font-size:.8rem; color:var(--muted)}
 .tag{font-size:.75rem; font-weight:600; padding:.1rem .45rem; border-radius:1rem}
+.tag.caja{color:var(--muted); background:var(--active)}
 .tag.cong{color:var(--ice); background:var(--ice-bg)}
 .tag.black{color:var(--gold); background:var(--gold-bg)}
 .stepper{display:flex; align-items:center; gap:.15rem; flex-shrink:0}
@@ -203,15 +204,15 @@ const PRODUCTS = [
  ["Asado 11 Costillas",16700,"ribs"],
  ["Asado 5 Costillas Black",18600,"ribs",1],
  ["Bife Ancho",19500,"steak"],
- ["Bife Angosto",17300,"steak"],
+ ["Bife Angosto",17800,"steak"],
  ["Bola de Lomo",15100,"roast"],
  ["Bondiola",7700,"roast",1],
  ["Colita de Cuadril",16600,"roast"],
  ["Corazón de Cuadril",16000,"roast"],
  ["Cuadrada",14900,"roast"],
  ["Entraña",19500,"strip"],
- ["Lomo",23000,"roast"],
- ["Matambre Black",13400,"strip"],
+ ["Lomo",24900,"roast"],
+ ["Matambre Black",13900,"strip"],
  ["Molleja",21000,"steak",1],
  ["Nalga c/Tapa",16200,"steak"],
  ["Nalga s/Tapa",17000,"steak"],
@@ -236,6 +237,7 @@ PRODUCTS.forEach(p => {
     <span class="info">
       <span class="name"><img class="sello" src="${SELLO}" alt="Swift Black">${cut}</span>
       <span class="meta"><span class="price" data-cut="${cut}">${money(p.price)}<small> x kg</small></span>
+        <span class="tag caja">Caja x ${["Bife Ancho","Bife Angosto","Molleja"].includes(cut) ? 10 : 20} kg</span>
         ${p.cong ? '<span class="tag cong">Congelado</span>' : ''}
         ${black ? '<span class="tag black">Black</span>' : ''}</span>
     </span>
