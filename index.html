@@ -203,23 +203,23 @@ const ICONS = {
 const PRODUCTS = [
  ["Asado 11 Costillas",16700,"ribs"],
  ["Asado 5 Costillas Black",18600,"ribs",1],
- ["Bife Ancho",19500,"steak"],
- ["Bife Angosto",17800,"steak"],
+ ["Bife Ancho",18600,"steak"],
+ ["Bife Angosto",17900,"steak"],
  ["Bola de Lomo",15100,"roast"],
  ["Bondiola",7700,"roast",1],
  ["Colita de Cuadril",16600,"roast"],
  ["Corazón de Cuadril",16000,"roast"],
  ["Cuadrada",14900,"roast"],
- ["Entraña",19500,"strip"],
+ ["Entraña",20800,"strip"],
  ["Lomo",24900,"roast"],
- ["Matambre Black",13900,"strip"],
+ ["Matambre Black",14500,"strip"],
  ["Molleja",21000,"steak",1],
  ["Nalga c/Tapa",16200,"steak"],
  ["Nalga s/Tapa",17000,"steak"],
  ["Peceto",17300,"roast"],
  ["Tapa de Asado",12100,"strip"],
  ["Tapa de Nalga",12200,"strip",1],
- ["Vacío",15900,"strip"]
+ ["Vacío",16000,"strip"]
 ].map(([name,price,icon,cong]) => ({name,price,icon,cong:!!cong}));
 const CUTS = PRODUCTS.map(p => p.name);
 const BY = Object.fromEntries(PRODUCTS.map(p => [p.name,p]));
