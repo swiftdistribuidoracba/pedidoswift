@@ -201,16 +201,16 @@ const ICONS = {
   strip:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c6-4 18-4 24 0v8c-6 4-18 4-24 0z"/><path d="M9 14l3 4M15 13l3 5M21 14l2 3"/></svg>'
 };
 const PRODUCTS = [
- ["Asado 11 Costillas",16100,"ribs"],
+ ["Asado 11 Costillas",16700,"ribs"],
  ["Asado 5 Costillas Black",18600,"ribs",1],
  ["Bife Ancho",18600,"steak"],
  ["Bife Angosto",17900,"steak"],
  ["Bola de Lomo",15100,"roast"],
  ["Bondiola",8300,"roast",1],
- ["Colita de Cuadril",15900,"roast"],
+ ["Colita de Cuadril",16600,"roast"],
  ["Corazón de Cuadril",16000,"roast"],
- ["Cuadrada",14500,"roast"],
- ["Entraña",21100,"strip"],
+ ["Cuadrada",14900,"roast"],
+ ["Entraña",20800,"strip"],
  ["Lomo",24900,"roast"],
  ["Matambre Black",14500,"strip"],
  ["Molleja",23000,"steak",1],
@@ -219,7 +219,7 @@ const PRODUCTS = [
  ["Peceto",17300,"roast"],
  ["Tapa de Asado",12100,"strip"],
  ["Tapa de Nalga",12200,"strip",1],
- ["Vacío",14200,"strip"]
+ ["Vacío",16000,"strip"]
 ].map(([name,price,icon,cong]) => ({name,price,icon,cong:!!cong}));
 const CUTS = PRODUCTS.map(p => p.name);
 const BY = Object.fromEntries(PRODUCTS.map(p => [p.name,p]));
