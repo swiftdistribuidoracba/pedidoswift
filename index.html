@@ -201,23 +201,28 @@ const ICONS = {
   strip:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c6-4 18-4 24 0v8c-6 4-18 4-24 0z"/><path d="M9 14l3 4M15 13l3 5M21 14l2 3"/></svg>'
 };
 const PRODUCTS = [
+ ["Aguja",11900,"strip"],
  ["Asado 11 Costillas",16700,"ribs"],
  ["Asado 5 Costillas Black",18600,"ribs",1],
  ["Bife Ancho",18600,"steak"],
- ["Bife Angosto",17900,"steak"],
- ["Bola de Lomo",15100,"roast"],
- ["Bondiola",8300,"roast",1],
- ["Colita de Cuadril",16600,"roast"],
+ ["Bife Angosto",19900,"steak"],
+ ["Bola de Lomo",15500,"roast"],
+ ["Bondiola",8500,"roast",1],
+ ["Carne Molida",11600,"roast",1],
+ ["Colita de Cuadril",18500,"roast"],
  ["Cuadrada",14900,"roast"],
- ["Entraña",21100,"strip"],
+ ["Entraña",21000,"strip"],
  ["Lomo",24900,"roast"],
  ["Matambre Black",14500,"strip"],
  ["Molleja",23000,"steak",1],
- ["Nalga c/Tapa",16200,"steak"],
- ["Nalga s/Tapa",18400,"steak"],
- ["Peceto",17300,"roast"],
+ ["Nalga c/Tapa",16500,"steak"],
+ ["Nalga s/Tapa",18500,"steak"],
+ ["Peceto",17900,"roast"],
+ ["Tapa de Asado",11000,"strip"],
+ ["Tapa de Nalga",12300,"strip",1],
  ["Vacío",16000,"strip"]
 ].map(([name,price,icon,cong]) => ({name,price,icon,cong:!!cong}));
+const fotoDe = p => PHOTOS[p.name] || "data:image/svg+xml," + encodeURIComponent(ICONS[p.icon].replace("<svg ", '<svg xmlns="http://www.w3.org/2000/svg" style="color:#B23A26;background:#F4EDE4" '));
 const CUTS = PRODUCTS.map(p => p.name);
 const BY = Object.fromEntries(PRODUCTS.map(p => [p.name,p]));
 const qty = Object.fromEntries(CUTS.map(c => [c, 0]));
@@ -230,7 +235,7 @@ PRODUCTS.forEach(p => {
   const li = document.createElement("li");
   const black = /Black/.test(cut);
   li.innerHTML = `
-    <img class="foto" src="${PHOTOS[p.name]}" alt="${cut}" loading="lazy">
+    <img class="foto" src="${fotoDe(p)}" alt="${cut}" loading="lazy">
     <span class="info">
       <span class="name"><img class="sello" src="${SELLO}" alt="Swift Black">${cut}</span>
       <span class="meta"><span class="price" data-cut="${cut}">${money(p.price)}<small> x kg</small></span>
@@ -265,7 +270,7 @@ PRODUCTS.forEach(p => {
 // Foto grande al tocar la imagen, con opción de pedir
 function abrirZoom(p){
   const z = document.getElementById("zoom");
-  z.querySelector(".z-img").src = PHOTOS[p.name];
+  z.querySelector(".z-img").src = fotoDe(p);
   z.querySelector(".z-img").alt = p.name;
   z.querySelector(".z-name").textContent = p.name;
   z.querySelector(".z-price").innerHTML = `${money(p.price)}<small> x kg</small>`;
